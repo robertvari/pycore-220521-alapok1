@@ -9,14 +9,23 @@ variable_types = ["Csaba", 42, 3.14, True, False, None]
 # print(variable_types[-2])
 
 # add item to list
-my_name = input("What is your name")
-names.append(my_name)
-print(names)
+# my_name = input("What is your name")
+# names.append(my_name)
+# print(names)
 
 # insert item
-my_name = input("What is your name")
-names.insert(0, my_name)
-print(names)
+# my_name = input("What is your name")
+# names.insert(0, my_name)
+# print(names)
 
 # add two lists together
-print(names + variable_types)
+# print(names + variable_types)
+
+# remove item from a list
+print(names)
+names.remove("Csaba")
+print(names)
+
+# del item from list
+del names[-1]
+print(names)
