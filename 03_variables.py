@@ -2,7 +2,7 @@ my_name = "Robert Vari"
 my_age = 42
 my_address = "Budapest"
 my_email = "mail.pythonsuli@gmail.com"
-
+this_is_nothing = None
 
 print(my_name)
 print(my_age)
