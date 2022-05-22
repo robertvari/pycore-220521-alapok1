@@ -1,5 +1,5 @@
-import os
-from PIL import Image, ExifTags
+import os, json
+from PIL import Image
 
 
 photo_folder = r"C:\Work\_PythonSuli\pycore-220521\photos"
@@ -25,6 +25,7 @@ for i in folder_content:
         image_files.append(full_path)
 
 
+# collect data from images
 photo_data = {}
 
 for file_path in image_files:
@@ -42,5 +43,19 @@ for file_path in image_files:
     }
 
 
+# save data to a photo_data.txt file
+with open("photo_data.txt", "w") as opened_file:
+    opened_file.write(str(photo_data))
 
-pass
+with open("photo_data.txt") as f:
+    data = f.read()
+
+# save data to a photo_data.json file
+with open("photo_data.json", "w") as f:
+    json.dump(photo_data, f)
+
+with open("photo_data.json") as f:
+    data = json.load(f)
+    print(data['C:\\Work\\_PythonSuli\\pycore-220521\\photos\\IMG_1069.JPG'])
+
+# todo save data to a photo_data.xlsx file
