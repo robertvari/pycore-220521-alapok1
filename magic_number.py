@@ -1,3 +1,5 @@
+import random
+
 game_title = "MAGIC NUMBER"
 try_count = 3
 min_number = 1
@@ -8,7 +10,7 @@ print(f"There is number between {min_number} and {max_number}. Can you guess it?
 print(f"You have {try_count} tries.")
 
 
-magic_number = 5
+magic_number = random.randint(min_number, max_number)
 
 user_guess = input("Your guess?")
 
@@ -26,4 +28,4 @@ while user_guess != str(magic_number):
 if user_guess == str(magic_number):
     print("You win!")
 else:
-    print("You lost. Maybe next time.")
+    print(f"You lost. My number was {magic_number}. Maybe next time.")
