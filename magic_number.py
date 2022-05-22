@@ -12,7 +12,7 @@ magic_number = 5
 
 user_guess = input("Your guess?")
 
-while user_guess != magic_number:
+while user_guess != str(magic_number):
     try_count -= 1
 
     if try_count == 0:
@@ -21,3 +21,9 @@ while user_guess != magic_number:
 
     print(f"Wrong guess. You have {try_count} tries left.")
     user_guess = input("Your guess?")
+
+
+if user_guess == str(magic_number):
+    print("You win!")
+else:
+    print("You lost. Maybe next time.")
