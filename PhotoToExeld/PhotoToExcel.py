@@ -19,4 +19,7 @@ for i in folder_content:
     file_path, extension = os.path.splitext(i)
 
     if extension.lower() in allowed_extensions:
-        image_files.append(i)
+        full_path = os.path.join(photo_folder, i)
+        image_files.append(full_path)
+
+pass
