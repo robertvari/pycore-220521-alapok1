@@ -1,5 +1,6 @@
 import os, json
 from PIL import Image
+from openpyxl import Workbook
 
 
 photo_folder = r"C:\Work\_PythonSuli\pycore-220521\photos"
@@ -56,6 +57,29 @@ with open("photo_data.json", "w") as f:
 
 with open("photo_data.json") as f:
     data = json.load(f)
-    print(data['C:\\Work\\_PythonSuli\\pycore-220521\\photos\\IMG_1069.JPG'])
+    # print(data['C:\\Work\\_PythonSuli\\pycore-220521\\photos\\IMG_1069.JPG'])
 
 # todo save data to a photo_data.xlsx file
+workbook = Workbook()
+sheet = workbook.active
+
+sheet['A1'] = "File Path"
+sheet.column_dimensions["A"].width = 80
+sheet['B1'] = "Date"
+sheet.column_dimensions["B"].width = 40
+sheet['C1'] = "Size"
+sheet.column_dimensions["C"].width = 40
+sheet['D1'] = "Camera"
+sheet.column_dimensions["D"].width = 40
+sheet['E1'] = "ISO"
+sheet.column_dimensions["E"].width = 40
+
+for index, file_path in enumerate(photo_data):
+    current_row = index + 3
+    sheet[f"A{current_row}"] = file_path
+    sheet[f"B{current_row}"] = photo_data[file_path]["date"]
+    sheet[f"C{current_row}"] = str(photo_data[file_path]["size"])
+    sheet[f"D{current_row}"] = photo_data[file_path]["camera"]
+    sheet[f"E{current_row}"] = photo_data[file_path]["iso"]
+
+workbook.save("photo_data.xlsx")
