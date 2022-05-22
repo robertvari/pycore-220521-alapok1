@@ -8,4 +8,15 @@ assert os.path.exists(photo_folder), f"Folder does not exist: {photo_folder}"
 # check if path is folder
 assert os.path.isdir(photo_folder), f"Path must be a folder: {photo_folder}"
 
-#
+# get all content from folder
+folder_content = os.listdir(photo_folder)
+
+# filter folder_content
+allowed_extensions = [".jpg", ".jpeg"]
+image_files = []
+
+for i in folder_content:
+    file_path, extension = os.path.splitext(i)
+
+    if extension.lower() in allowed_extensions:
+        image_files.append(i)
